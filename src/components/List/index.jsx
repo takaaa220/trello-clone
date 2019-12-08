@@ -1,21 +1,19 @@
-import React from "react";
+import React, { memo } from "react";
 
-import ListCard from "../ListCard";
+import ListContext from "../../libs/ListContext";
 
-const List = () => {
+import ListCards from "../ListCards";
+import ListHeader from "../ListHeader";
+
+const List = props => {
   return (
-    <div className="List">
-      <div className="ListHeader">
-        <h3 className="ListHeader__Heading">未着手</h3>
-        <div>+</div>
+    <ListContext.Provider value={props}>
+      <div className="List">
+        <ListHeader />
+        <ListCards />
       </div>
-      <div className="ListCard">
-        <ListCard />
-        <ListCard />
-        <ListCard />
-      </div>
-    </div>
+    </ListContext.Provider>
   );
 };
 
-export default List;
+export default memo(List);

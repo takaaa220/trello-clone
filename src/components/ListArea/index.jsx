@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useContext, memo } from "react";
+
+import BoardContext from "../../libs/BoardContext";
 
 import List from "../List";
+
 const ListArea = () => {
+  const { cards } = useContext(BoardContext);
+
   return (
     <div className="ListArea">
-      <List />
-      <List />
-      <List />
-      <List />
+      {cards.map(card => (
+        <List key={card.id} {...card} />
+      ))}
     </div>
   );
 };
 
-export default ListArea;
+export default memo(ListArea);

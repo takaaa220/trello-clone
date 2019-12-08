@@ -1,0 +1,110 @@
+@import "./reset";
+
+body {
+  background-color: lightgreen;
+  height: 100vh;
+  overflow: scroll;
+  width: 100vw;
+}
+
+.Header {
+  background-color: green;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  padding: 4px;
+  width: 100%;
+
+  & &__Heading {
+    color: white;
+    font-weight: bold;
+    font-size: 1.8rem;
+    line-height: 32px;
+  }
+}
+
+.HeaderIcon {
+  display: flex;
+
+  &__Item {
+    align-items: center;
+    background-color: lightseagreen;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    height: 32px;
+    width: 32px;
+
+    & + & {
+      margin-left: 4px;
+    }
+  }
+}
+
+.Board {
+  height: calc(100% - 40px);
+  padding-bottom: 8px;
+  box-sizing: border-box;
+  overflow-x: scroll;
+}
+
+.BoardHeader {
+  display: flex;
+  height: 50px;
+  padding: 8px 16px;
+  width: 100%;
+}
+
+.BoardHeader__Heading {
+  color: #fafafa;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 32px;
+}
+
+.ListArea {
+  box-sizing: border-box;
+  height: calc(100% - 50px);
+  overflow-x: scroll;
+  padding: 0 8px;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.List {
+  background-color: greenyellow;
+  border-radius: 4px;
+  display: inline-block;
+  height: 100%;
+  width: 300px;
+  overflow-y: scroll;
+  padding: 0 8px;
+  white-space: normal;
+
+  & + & {
+    margin-left: 8px;
+  }
+}
+
+.ListHeader {
+  align-items: center;
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+  padding: 0 8px;
+}
+
+.ListCard {
+}
+
+.ListCard__Item {
+  background-color: #fafafa;
+  border-radius: 4px;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  padding: 8px;
+
+  & + & {
+    margin-top: 8px;
+  }
+}

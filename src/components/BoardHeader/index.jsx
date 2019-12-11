@@ -1,9 +1,6 @@
-import React, { useContext, memo } from "react";
-import BoardContext from "../../libs/BoardContext";
+import React, { useState, memo } from "react";
 
-const BoardHeader = () => {
-  const { title } = useContext(BoardContext);
-
+const BoardHeader = ({ title }) => {
   return (
     <div className="BoardHeader">
       <h2 className="BoardHeader__Heading">{title}</h2>

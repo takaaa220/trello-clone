@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useReducer } from "react";
 import ReactDOM from "react-dom";
+
+import BoardReducer from "./reducers/BoardReducer";
+import BoardContext from "./contexts/BoardContext";
 
 import Header from "./components/Header";
 import Board from "./components/Board";
-
-import BoardContext from "./libs/BoardContext";
 
 const tmpValues = {
   title: "オンラインコード対戦",
@@ -48,13 +49,16 @@ const tmpValues = {
   ]
 };
 
-const App = () => (
-  <React.Fragment>
-    <Header />
-    <BoardContext.Provider value={tmpValues}>
+const App = () => {
+  const [state, dispatch] = useReducer(BoardReducer, tmpValues);
+  const value = { ...state, dispatch };
+
+  return (
+    <BoardContext.Provider value={value}>
+      <Header />
       <Board />
     </BoardContext.Provider>
-  </React.Fragment>
-);
+  );
+};
 
 ReactDOM.render(<App />, document.getElementById("root"));

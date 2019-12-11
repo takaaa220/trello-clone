@@ -1,10 +1,6 @@
-import React, { memo, useContext } from "react";
+import React, { memo } from "react";
 
-import ListContext from "../../libs/ListContext";
-
-const ListHeader = () => {
-  const { title } = useContext(ListContext);
-
+const ListHeader = ({ title }) => {
   return (
     <div className="ListHeader">
       <h3 className="ListHeader__Heading">{title}</h3>

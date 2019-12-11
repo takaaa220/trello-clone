@@ -1,12 +1,8 @@
-import React, { memo, useContext } from "react";
-
-import ListContext from "../../libs/ListContext";
+import React, { memo } from "react";
 
 import ListCard from "../ListCard";
 
-const ListCards = () => {
-  const { items } = useContext(ListContext);
-
+const ListCards = ({ items }) => {
   return (
     <div className="ListCards">
       {items.map(item => (

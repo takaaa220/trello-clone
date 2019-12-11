@@ -1,6 +1,6 @@
 import React, { useContext, memo } from "react";
 
-import BoardContext from "../../libs/BoardContext";
+import BoardContext from "../../contexts/BoardContext";
 
 import List from "../List";
 

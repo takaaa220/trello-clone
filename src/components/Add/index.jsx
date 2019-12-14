@@ -8,8 +8,10 @@ const Add = ({ isCard = false, onSubmit }) => {
   const [text, setText] = useState("");
 
   const handleSubmit = _e => {
+    if (text === "") return;
     onSubmit(text);
     toggle(false);
+    setText("");
   };
 
   return (

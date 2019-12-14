@@ -35,6 +35,27 @@ const reducer = (state, action) => {
         ...state,
         cards: tmpCards
       };
+    case BoardActionType.ADD_CARD:
+      const tmpCards2 = state.cards;
+      tmpCards2.map(card => {
+        if (card.id !== payload.id) return card;
+
+        const items = card.items;
+        items.push({
+          id: 12,
+          text: payload.title
+        });
+
+        return {
+          ...card,
+          items
+        };
+      });
+
+      return {
+        ...state,
+        cards: tmpCards2
+      };
     default:
       return state;
   }

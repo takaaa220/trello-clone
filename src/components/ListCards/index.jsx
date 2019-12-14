@@ -1,6 +1,7 @@
 import React, { memo } from "react";
 
 import ListCard from "../ListCard";
+import Add from "../Add";
 
 const ListCards = ({ items }) => {
   return (
@@ -8,6 +9,7 @@ const ListCards = ({ items }) => {
       {items.map(item => (
         <ListCard key={item.id} {...item} />
       ))}
+      <Add isCard onSubmit={() => console.log("hello")} />
     </div>
   );
 };

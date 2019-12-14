@@ -6,6 +6,7 @@ import BoardContext from "./contexts/BoardContext";
 
 import Header from "./components/Header";
 import Board from "./components/Board";
+import Add from "./components/Add";
 
 const tmpValues = {
   title: "オンラインコード対戦",
@@ -55,6 +56,7 @@ const App = () => {
 
   return (
     <BoardContext.Provider value={value}>
+      <Add onSubmit={() => console.log("hello")} />
       <Header />
       <Board />
     </BoardContext.Provider>

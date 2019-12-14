@@ -1,9 +1,21 @@
-import React, { memo } from "react";
+import React, { useContext, memo } from "react";
+
+import { changeListTitle } from "../../actions/BoardActions";
+import BoardContext from "../../contexts/BoardContext";
+import ListContext from "../../contexts/ListContext";
+import Edit from "../Edit";
 
 const ListHeader = ({ title }) => {
+  const { id } = useContext(ListContext);
+  const { dispatch } = useContext(BoardContext);
+
+  const onSubmit = value => {
+    dispatch(changeListTitle({ id, title: value }));
+  };
+
   return (
     <div className="ListHeader">
-      <h3 className="ListHeader__Heading">{title}</h3>
+      <Edit onSubmit={onSubmit} value={title} />
       <div>+</div>
     </div>
   );

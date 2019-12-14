@@ -1,9 +1,20 @@
-import React, { useState, memo } from "react";
+import React, { useContext, memo } from "react";
+
+import BoardContext from "../../contexts/BoardContext";
+import { changeTitle } from "../../actions/BoardActions";
+
+import Edit from "../Edit";
 
 const BoardHeader = ({ title }) => {
+  const { dispatch } = useContext(BoardContext);
+
+  const onSubmit = text => {
+    dispatch(changeTitle(text));
+  };
+
   return (
     <div className="BoardHeader">
-      <h2 className="BoardHeader__Heading">{title}</h2>
+      <Edit onSubmit={onSubmit} value={title} />
     </div>
   );
 };

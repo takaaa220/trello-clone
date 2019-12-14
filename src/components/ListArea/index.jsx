@@ -1,9 +1,9 @@
 import React, { useContext, memo } from "react";
 
 import BoardContext from "../../contexts/BoardContext";
+import ListContext from "../../contexts/ListContext";
 
 import List from "../List";
-import Add from "../Add";
 
 const ListArea = () => {
   const { cards } = useContext(BoardContext);
@@ -11,11 +11,13 @@ const ListArea = () => {
   return (
     <div className="ListArea">
       {cards.map(card => (
-        <List key={card.id} {...card} />
+        <ListContext.Provider key={card.id} value={{ id: card.id }}>
+          <List {...card} />
+        </ListContext.Provider>
       ))}
       <List />
     </div>
   );
 };
 
-export default memo(ListArea);
+export default ListArea;

@@ -19,16 +19,14 @@ const tmpValues = {
       items: [
         { id: 3, text: "アニメーション" },
         { id: 4, text: "移動している元の位置から消す" },
-        { id: 6, text: "バックエンドどうしよう" }
+        { id: 6, text: "バックエンドどうしよう" },
+        { id: 8, text: "色々バグってるの修正" }
       ]
     },
     {
       id: 2,
       title: "作業中",
-      items: [
-        { id: 2, text: "デプロイ" },
-        { id: 5, text: "デバッグ" }
-      ]
+      items: [{ id: 5, text: "デバッグ" }]
     },
     {
       id: 3,
@@ -39,6 +37,7 @@ const tmpValues = {
       id: 4,
       title: "完了",
       items: [
+        { id: 2, text: "デプロイ" },
         { id: 10, text: "見た目の整理" },
         { id: 11, text: "ドラッグ&ドロップ" },
         { id: 12, text: "コンポーネントの分割" }

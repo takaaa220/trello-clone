@@ -2,7 +2,8 @@ export const BoardActionType = {
   CHANGE_TITLE: "ChangeTitle",
   CHANGE_LIST_TITLE: "ChangeListTitle",
   ADD_LIST: "AddList",
-  ADD_CARD: "AddCard"
+  ADD_CARD: "AddCard",
+  CHANGE_CARD_ORDER: "ChangeCardOrder"
 };
 
 export const changeTitle = title => ({
@@ -30,5 +31,13 @@ export const AddCard = ({ id, title }) => ({
   payload: {
     id,
     title
+  }
+});
+
+export const ChangeCardOrder = ({ movedCard, changedCard }) => ({
+  type: BoardActionType.CHANGE_CARD_ORDER,
+  payload: {
+    movedCard,
+    changedCard
   }
 });

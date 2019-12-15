@@ -1,4 +1,6 @@
-import React, { useContext, memo } from "react";
+import React, { useContext } from "react";
+import Backend from "react-dnd-html5-backend";
+import { DndProvider } from "react-dnd";
 
 import BoardContext from "../../contexts/BoardContext";
 import ListContext from "../../contexts/ListContext";
@@ -10,11 +12,13 @@ const ListArea = () => {
 
   return (
     <div className="ListArea">
-      {cards.map(card => (
-        <ListContext.Provider key={card.id} value={{ id: card.id }}>
-          <List {...card} />
-        </ListContext.Provider>
-      ))}
+      <DndProvider backend={Backend}>
+        {cards.map(card => (
+          <ListContext.Provider key={card.id} value={{ id: card.id }}>
+            <List {...card} />
+          </ListContext.Provider>
+        ))}
+      </DndProvider>
       <List />
     </div>
   );

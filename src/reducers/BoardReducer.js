@@ -56,6 +56,45 @@ const reducer = (state, action) => {
         ...state,
         cards: tmpCards2
       };
+    case BoardActionType.CHANGE_CARD_ORDER:
+      const { listId, ...movedCard } = payload.movedCard;
+
+      const tmpCards3 = state.cards.map(card => {
+        if (card.id === listId) {
+          const items = card.items;
+          console.log(items);
+
+          const index = items.findIndex(item => item.id === movedCard.id);
+
+          items.splice(index, 1);
+
+          return {
+            ...card,
+            items
+          };
+        }
+
+        if (card.id === payload.changedCard.listId) {
+          const items = card.items;
+          const index = items.indexOf(
+            item => item.id === payload.changedCard.cardId
+          );
+
+          items.splice(index - 1, 0, movedCard);
+
+          return {
+            ...card,
+            items
+          };
+        }
+
+        return card;
+      });
+
+      return {
+        ...state,
+        cards: tmpCards3
+      };
     default:
       return state;
   }

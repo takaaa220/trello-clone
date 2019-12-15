@@ -9,7 +9,6 @@ import StatusContext from "./contexts/StatusContext";
 
 import Header from "./components/Header";
 import Board from "./components/Board";
-import Add from "./components/Add";
 
 const tmpValues = {
   title: "オンラインコード対戦",
@@ -18,36 +17,30 @@ const tmpValues = {
       id: 1,
       title: "未着手",
       items: [
-        { id: 1, text: "あ1" },
-        { id: 3, text: "テスト3" },
-        { id: 4, text: "テスト4" }
+        { id: 3, text: "アニメーション" },
+        { id: 4, text: "移動している元の位置から消す" }
       ]
     },
     {
       id: 2,
       title: "作業中",
       items: [
-        { id: 2, text: "テスト2" },
-        { id: 5, text: "テスト5" },
-        { id: 6, text: "テスト6" }
+        { id: 2, text: "デプロイ" },
+        { id: 5, text: "デバッグ" }
       ]
     },
     {
       id: 3,
       title: "中断中",
-      items: [
-        { id: 7, text: "テスト7" },
-        { id: 8, text: "テスト8" },
-        { id: 9, text: "テスト9" }
-      ]
+      items: [{ id: 7, text: "コンポーネントのCSS整理" }]
     },
     {
       id: 4,
       title: "完了",
       items: [
-        { id: 10, text: "テスト10" },
-        { id: 11, text: "テスト11" },
-        { id: 12, text: "テスト12" }
+        { id: 10, text: "見た目の整理" },
+        { id: 11, text: "ドラッグ&ドロップ" },
+        { id: 12, text: "コンポーネントの分割" }
       ]
     }
   ]
@@ -68,7 +61,6 @@ const App = () => {
   return (
     <BoardContext.Provider value={boardValue}>
       <StatusContext.Provider value={statusValue}>
-        <Add onSubmit={() => console.log("hello")} />
         <Header />
         <Board />
       </StatusContext.Provider>
